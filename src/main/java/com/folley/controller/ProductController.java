@@ -45,8 +45,13 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
-        // This method is intentionally not implemented correctly
-        // It will be the subject of our failing test
-        return ResponseEntity.ok(updatedProduct);
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId().equals(id)) {
+                updatedProduct.setId(id);
+                products.set(i, updatedProduct);
+                return ResponseEntity.ok(updatedProduct);
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
 }
