@@ -24,22 +24,66 @@ Demonstrates handling of **all Java datatypes** in a single JSON payload:
 ### Product Controller
 Basic CRUD operations for products with an intentionally failing test for TDD practice.
 
+## Using Just (Recommended)
+
+This project includes a `justfile` for convenient task running. Install `just` for easier command execution:
+
+**Installation:**
+```bash
+# macOS
+brew install just
+
+# Linux
+curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
+
+# Windows
+scoop install just
+# or
+choco install just
+```
+
+**Common commands:**
+```bash
+just build        # Build the project
+just test         # Run all tests
+just run          # Run the application
+just clean        # Clean build artifacts
+just rebuild      # Clean and rebuild
+just ci           # Run full CI pipeline
+just              # Show all available commands
+```
+
+See the [justfile](justfile) for all available commands.
+
 ## Running the Application
 
+Using just:
+```bash
+just run
+```
+
+Or using Gradle directly:
 ```bash
 ./gradlew bootRun
 ```
 
 ## Testing
 
-Run all tests:
+Run all tests with just:
+```bash
+just test
+```
+
+Or using Gradle directly:
 ```bash
 ./gradlew test
 ```
 
 Run specific test:
 ```bash
-./gradlew test --tests ProductControllerTest.testUpdateProduct_ShouldUpdateExistingProduct
+just test-class ProductControllerTest
+# or
+./gradlew test --tests ProductControllerTest
 ```
 
 ## API Endpoints
@@ -117,6 +161,12 @@ curl -X POST http://localhost:8080/api/data/comprehensive \
 
 ## Build
 
+Using just:
+```bash
+just build
+```
+
+Or using Gradle directly:
 ```bash
 ./gradlew build
 ```
