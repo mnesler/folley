@@ -3,7 +3,7 @@ English topographic surname from Old French feuillie ("leafy bower or shelter; c
 
 ## Spring Boot MVC Application
 
-A Spring Boot 3.2.0 application with Java 21 demonstrating comprehensive JSON data handling and REST API design.
+A Spring Boot 3.2.0 application with Java 17 demonstrating comprehensive JSON data handling and REST API design.
 
 ## Features
 
@@ -123,5 +123,5 @@ curl -X POST http://localhost:8080/api/data/comprehensive \
 
 ## Requirements
 
-- Java 21
+- Java 17
 - Gradle 8.5+
